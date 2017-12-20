@@ -77,3 +77,20 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+*.exe
+*.pdb
+*.vshost.exe
+*.manifest
+*.log
+*.suo
+*.dll
+*.tlog
+*.config
+*.cache
+*.Cache
+*.FileListAbsolute.txt
+*.ipch
+*.metagen
+*.idb
+*.sdf
