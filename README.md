@@ -17,5 +17,5 @@ You need to have Visual Studio 2013 to compile this project, load the solution w
 ## Credit
 SCO - Swyter  
 
-##License
+## License
 GPLv3  
