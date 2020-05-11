@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using SCO.Managed;
 
 namespace SCO.Test
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            SCOLoader loader = new SCOLoader();
-            SCOFile sco = loader.Read(@"");
-            Console.WriteLine(sco.AIMeshes.Count);
-            Console.Read();
+            Application.Run(new frmMain());
         }
     }
 }

@@ -14,6 +14,9 @@
     <ClInclude Include="SCO.Managed.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SCO.Managed.cpp">

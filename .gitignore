@@ -94,3 +94,8 @@ $RECYCLE.BIN/
 *.metagen
 *.idb
 *.sdf
+
+.vs/*
+*/obj/*
+*/Debug/*
+*/Release/*
