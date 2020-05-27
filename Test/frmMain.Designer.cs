@@ -39,10 +39,9 @@
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.txtMissionObjectCount = new System.Windows.Forms.Label();
-			this.lbGroundPaintLayerSize = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.lbGroundPaintLayerNum = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
 			this.lbAIMeshFaceCount = new System.Windows.Forms.Label();
 			this.lbAIMeshEdgeCount = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -50,9 +49,10 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.lbAIMeshVerticsCount = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.lbGroundPaintLayerNum = new System.Windows.Forms.Label();
+			this.txtMissionObjectCount = new System.Windows.Forms.Label();
+			this.lbGroundPaintLayerSize = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.SuspendLayout();
@@ -159,46 +159,37 @@
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Basic Info";
 			// 
-			// txtMissionObjectCount
+			// lbGroundPaintLayerNum
 			// 
-			this.txtMissionObjectCount.AutoSize = true;
-			this.txtMissionObjectCount.Location = new System.Drawing.Point(473, 27);
-			this.txtMissionObjectCount.Name = "txtMissionObjectCount";
-			this.txtMissionObjectCount.Size = new System.Drawing.Size(11, 12);
-			this.txtMissionObjectCount.TabIndex = 4;
-			this.txtMissionObjectCount.Text = "0";
+			this.lbGroundPaintLayerNum.AutoSize = true;
+			this.lbGroundPaintLayerNum.Location = new System.Drawing.Point(467, 76);
+			this.lbGroundPaintLayerNum.Name = "lbGroundPaintLayerNum";
+			this.lbGroundPaintLayerNum.Size = new System.Drawing.Size(11, 12);
+			this.lbGroundPaintLayerNum.TabIndex = 20;
+			this.lbGroundPaintLayerNum.Text = "0";
 			// 
-			// lbGroundPaintLayerSize
+			// label9
 			// 
-			this.lbGroundPaintLayerSize.AutoSize = true;
-			this.lbGroundPaintLayerSize.Location = new System.Drawing.Point(317, 76);
-			this.lbGroundPaintLayerSize.Name = "lbGroundPaintLayerSize";
-			this.lbGroundPaintLayerSize.Size = new System.Drawing.Size(23, 12);
-			this.lbGroundPaintLayerSize.TabIndex = 3;
-			this.lbGroundPaintLayerSize.Text = "0,0";
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(378, 76);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(83, 12);
+			this.label9.TabIndex = 19;
+			this.label9.Text = "Layer Number:";
 			// 
-			// label4
+			// label8
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(9, 76);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(119, 12);
-			this.label4.TabIndex = 2;
-			this.label4.Text = "Ground Paint Layer:";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(9, 27);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(95, 12);
-			this.label3.TabIndex = 1;
-			this.label3.Text = "Mission Objects";
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(275, 76);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(35, 12);
+			this.label8.TabIndex = 18;
+			this.label8.Text = "Size:";
 			// 
 			// lbAIMeshFaceCount
 			// 
 			this.lbAIMeshFaceCount.AutoSize = true;
-			this.lbAIMeshFaceCount.Location = new System.Drawing.Point(473, 51);
+			this.lbAIMeshFaceCount.Location = new System.Drawing.Point(467, 51);
 			this.lbAIMeshFaceCount.Name = "lbAIMeshFaceCount";
 			this.lbAIMeshFaceCount.Size = new System.Drawing.Size(11, 12);
 			this.lbAIMeshFaceCount.TabIndex = 17;
@@ -258,32 +249,41 @@
 			this.label2.TabIndex = 11;
 			this.label2.Text = "AIMesh:";
 			// 
-			// label8
+			// txtMissionObjectCount
 			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(275, 76);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(35, 12);
-			this.label8.TabIndex = 18;
-			this.label8.Text = "Size:";
+			this.txtMissionObjectCount.AutoSize = true;
+			this.txtMissionObjectCount.Location = new System.Drawing.Point(467, 27);
+			this.txtMissionObjectCount.Name = "txtMissionObjectCount";
+			this.txtMissionObjectCount.Size = new System.Drawing.Size(11, 12);
+			this.txtMissionObjectCount.TabIndex = 4;
+			this.txtMissionObjectCount.Text = "0";
 			// 
-			// label9
+			// lbGroundPaintLayerSize
 			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(378, 76);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(83, 12);
-			this.label9.TabIndex = 19;
-			this.label9.Text = "Layer Number:";
+			this.lbGroundPaintLayerSize.AutoSize = true;
+			this.lbGroundPaintLayerSize.Location = new System.Drawing.Point(317, 76);
+			this.lbGroundPaintLayerSize.Name = "lbGroundPaintLayerSize";
+			this.lbGroundPaintLayerSize.Size = new System.Drawing.Size(23, 12);
+			this.lbGroundPaintLayerSize.TabIndex = 3;
+			this.lbGroundPaintLayerSize.Text = "0,0";
 			// 
-			// lbGroundPaintLayerNum
+			// label4
 			// 
-			this.lbGroundPaintLayerNum.AutoSize = true;
-			this.lbGroundPaintLayerNum.Location = new System.Drawing.Point(473, 76);
-			this.lbGroundPaintLayerNum.Name = "lbGroundPaintLayerNum";
-			this.lbGroundPaintLayerNum.Size = new System.Drawing.Size(11, 12);
-			this.lbGroundPaintLayerNum.TabIndex = 20;
-			this.lbGroundPaintLayerNum.Text = "0";
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(9, 76);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(119, 12);
+			this.label4.TabIndex = 2;
+			this.label4.Text = "Ground Paint Layer:";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(9, 27);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(95, 12);
+			this.label3.TabIndex = 1;
+			this.label3.Text = "Mission Objects";
 			// 
 			// frmMain
 			// 
