@@ -27,6 +27,7 @@ typedef struct ground_paint_layer
 	int ground_spec_no;
 	int *continuity_count;
 	float *cells;
+	int has_cells;
 } ground_paint_layer_t;
 
 typedef struct ground_paint
@@ -81,6 +82,8 @@ typedef struct sco_file
 {
 	int version;
 	int num_mission_objects;
+	int num_ai_meshes;
+	int num_ground_paints;
 	mission_object_t *mission_objects;
 	ai_mesh_t *ai_mesh;
 	ground_paint_t *ground_paint;

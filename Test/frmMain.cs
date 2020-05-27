@@ -33,8 +33,11 @@ namespace SCO.Test
 		{
 			SCOLoader loader = new SCOLoader();
 			SCOFile sco = loader.Read(fileName);
-			txtAIMeshCount.Text = sco.AIMeshes.Count.ToString();
-			txtGroundPaintLayerCount.Text = sco.GroundPaints.Count.ToString();
+			lbAIMeshVerticsCount.Text = sco.CurrentAIMesh.Vertices.Count.ToString();
+			lbAIMeshEdgeCount.Text = sco.CurrentAIMesh.Edages.Count.ToString();
+			lbAIMeshFaceCount.Text = sco.CurrentAIMesh.Faces.Count.ToString();
+			lbGroundPaintLayerNum.Text = sco.CurrentGroundPaint.Layers.Count.ToString();
+			lbGroundPaintLayerSize.Text = sco.CurrentGroundPaint.SizeX.ToString() + "," + sco.CurrentGroundPaint.SizeY.ToString();
 			txtMissionObjectCount.Text = sco.MissionObjects.Count.ToString();
 
 			missionObject.Items.Clear();

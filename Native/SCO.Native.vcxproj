@@ -81,7 +81,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\sco.h" />
+    <ClInclude Include="sco.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="scoReader.c" />

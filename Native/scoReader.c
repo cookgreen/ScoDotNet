@@ -214,6 +214,8 @@ void read_sco_file(FILE *file, sco_file_t *dest)
 
 			read_int(file, &has_cells);
 
+			dest->ground_paint->layers[lcv].has_cells = has_cells;
+
 			if(has_cells)
 			{
 				dest->ground_paint->layers[lcv].continuity_count = (int*)malloc((dest->ground_paint->size_x * dest->ground_paint->size_y + 1) * sizeof(int));

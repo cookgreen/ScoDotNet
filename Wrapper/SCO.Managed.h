@@ -221,6 +221,7 @@ namespace SCO {
 			ground_paint_layer_t* _gound_painter_layer;
 			String^ groundSpecID;
 			int groundSpecNo;
+			int hasCells;
 			array<int>^ continuityCount;
 			array<float>^ cells;
 		public:
@@ -244,6 +245,17 @@ namespace SCO {
 				delete _gound_painter_layer;
 				delete[] continuityCount;
 				delete[] cells;
+			}
+			property int HasCells
+			{
+				int get() 
+				{
+					return hasCells;
+				}
+				void set(int hasCells)
+				{
+					this->hasCells = hasCells;
+				}
 			}
 			property String^ GroundSpecID
 			{
@@ -323,20 +335,26 @@ namespace SCO {
 				sizeX = _nativeObj.size_x;
 				sizeY = _nativeObj.size_y;
 				num_layers = _nativeObj.num_layers;
+				layers = gcnew List<GroundPaintLayer^>();
 				for (int lcv = 0; lcv < num_layers; ++lcv)
 				{
 					GroundPaintLayer^ layer = gcnew GroundPaintLayer(sizeX * sizeY + 1, sizeX * sizeY);
 					layer->GroundSpecID = gcnew String(_nativeObj.layers[lcv].ground_spec_id);
 					layer->GroundSpecNo = _nativeObj.layers[lcv].ground_spec_no;
-					//layer->ContinuityCount[sizeX * sizeY] = _nativeObj.layers[lcv].continuity_count[sizeX * sizeY];
-					for (int i = 0; i < sizeX; i++)
+					layer->HasCells = _nativeObj.layers[lcv].has_cells;
+					if (layer->HasCells)
 					{
-						for (int j = 0; j < sizeY; j++)
+						layer->ContinuityCount[sizeX * sizeY] = _nativeObj.layers[lcv].continuity_count[sizeX * sizeY];
+						for (int i = 0; i < sizeX; i++)
 						{
-							layer->ContinuityCount[_nativeObj.layers[lcv].continuity_count[j * sizeY + i]];
-							layer->Cells[_nativeObj.layers[lcv].cells[j * sizeY + i]];
+							for (int j = 0; j < sizeY; j++)
+							{
+								layer->ContinuityCount[_nativeObj.layers[lcv].continuity_count[j * sizeY + i]];
+								layer->Cells[_nativeObj.layers[lcv].cells[j * sizeY + i]];
+							}
 						}
 					}
+					layers->Add(layer);
 				}
 			}
 			~GroundPaint()
@@ -406,11 +424,6 @@ namespace SCO {
 			{
 				List<GroundPaintLayer^>^ get()
 				{
-					List<GroundPaintLayer^>^ layers = gcnew List<GroundPaintLayer^>();
-					for (int i = 0; i < _ground_paint->num_layers; i++)
-					{
-						layers->Add(gcnew GroundPaintLayer(_ground_paint->layers[i]));
-					}
 					return layers;
 				}
 			}
@@ -892,29 +905,29 @@ namespace SCO {
 			sco_file_t* _sco_file;
 			int version;
 			List<MissionObject^>^ missionObjects;
-			List<AIMesh^>^ aiMeshes;
-			List<GroundPaint^>^ groundPaints;
+			AIMesh^ aiMesh;
+			GroundPaint^ groundPaint;
 		public:
 			SCOFile()
 			{
 				_sco_file = new sco_file_t();
 				version = 0;
 				missionObjects = gcnew List<MissionObject^>();
-				aiMeshes = gcnew List<AIMesh^>  ();
-				groundPaints = gcnew List<GroundPaint^>();
+				aiMesh = gcnew AIMesh();
+				groundPaint = gcnew GroundPaint();
 			}
 			SCOFile(sco_file_t _nativeObj)
 			{
 				version = _nativeObj.version;
 				missionObjects = gcnew List<MissionObject^>();
-				aiMeshes = gcnew List<AIMesh^>();
-				groundPaints = gcnew List<GroundPaint^>();
+				aiMesh = gcnew AIMesh();
+				groundPaint = gcnew GroundPaint();
 				for (int i = 0; i < _nativeObj.num_mission_objects; i++)
 				{
 					missionObjects->Add(gcnew MissionObject(_nativeObj.mission_objects[i]));
 				}
-				aiMeshes->Add(gcnew AIMesh(_nativeObj.ai_mesh[0]));
-				groundPaints->Add(gcnew GroundPaint(_nativeObj.ground_paint[0]));
+				aiMesh = gcnew AIMesh(_nativeObj.ai_mesh[0]);
+				groundPaint = gcnew GroundPaint(_nativeObj.ground_paint[0]);
 			}
 			SCOFile(sco_file_t* _nativePtr)
 			{
@@ -942,48 +955,42 @@ namespace SCO {
 					missionObjects = value;
 				}
 			}
-			property List<AIMesh^>^ AIMeshes
+			property AIMesh^ CurrentAIMesh
 			{
-				List<AIMesh^>^ get()
+				AIMesh^ get()
 				{
-					return aiMeshes;
+					return aiMesh;
 				}
-				void set(List<AIMesh^>^ value)
+				void set(AIMesh^ value)
 				{
-					aiMeshes = value;
+					aiMesh = value;
 				}
 			}
-			property List<GroundPaint^>^ GroundPaints
+			property GroundPaint^ CurrentGroundPaint
 			{
-				List<GroundPaint^>^ get()
+				GroundPaint^ get()
 				{
-					return groundPaints;
+					return groundPaint;
 				}
-				void set(List<GroundPaint^>^ value)
+				void set(GroundPaint^ value)
 				{
-					groundPaints = value;
+					groundPaint = value;
 				}
 			}
 			property sco_file_t Native{
 				sco_file_t get()
 				{
 					sco_file_t sco;
-					sco.ai_mesh = new ai_mesh_t[aiMeshes->Count];
+					sco.ai_mesh = new ai_mesh_t[1];
 					sco.mission_objects = new mission_object_t[missionObjects->Count];
 					sco.num_mission_objects = missionObjects->Count;
-					sco.ground_paint = new ground_paint_t[groundPaints->Count];
-					for (int i = 0; i < aiMeshes->Count; i++)
-					{
-						sco.ai_mesh[i] = aiMeshes[i]->Native;
-					}
+					sco.ground_paint = new ground_paint_t[1];
 					for (int i = 0; i < missionObjects->Count; i++)
 					{
 						sco.mission_objects[i] = missionObjects[i]->Native;
 					}
-					for (int i = 0; i < groundPaints->Count; i++)
-					{
-						sco.ground_paint[i] = groundPaints[i]->Native;
-					}
+					sco.ai_mesh[0] = aiMesh->Native;
+					sco.ground_paint[0] = groundPaint->Native;
 					return sco;
 				}
 			}
