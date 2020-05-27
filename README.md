@@ -4,7 +4,7 @@
 
 ## Introduction
 
-.NET Wrapper of Mount&Blade SCO File Format
+.NET Wrapper for Mount&Blade SCO File Format
 
 ## Folder
 * Native - original C files written by Swyter  
