@@ -36,8 +36,8 @@ namespace SCO.Test
 			lbAIMeshVerticsCount.Text = sco.CurrentAIMesh.Vertices.Count.ToString();
 			lbAIMeshEdgeCount.Text = sco.CurrentAIMesh.Edages.Count.ToString();
 			lbAIMeshFaceCount.Text = sco.CurrentAIMesh.Faces.Count.ToString();
-			lbGroundPaintLayerNum.Text = sco.CurrentGroundPaint.Layers.Count.ToString();
-			lbGroundPaintLayerSize.Text = sco.CurrentGroundPaint.SizeX.ToString() + "," + sco.CurrentGroundPaint.SizeY.ToString();
+			lbGroundPaintLayerNum.Text = sco.CurrentGroundPaint != null ? sco.CurrentGroundPaint.Layers.Count.ToString() : "N/A";
+			lbGroundPaintLayerSize.Text = sco.CurrentGroundPaint != null ? sco.CurrentGroundPaint.SizeX.ToString() + "," + sco.CurrentGroundPaint.SizeY.ToString() : "N/A";
 			txtMissionObjectCount.Text = sco.MissionObjects.Count.ToString();
 
 			missionObject.Items.Clear();

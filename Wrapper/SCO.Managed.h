@@ -927,7 +927,13 @@ namespace SCO {
 					missionObjects->Add(gcnew MissionObject(_nativeObj.mission_objects[i]));
 				}
 				aiMesh = gcnew AIMesh(_nativeObj.ai_mesh[0]);
-				groundPaint = gcnew GroundPaint(_nativeObj.ground_paint[0]);
+				if (_nativeObj.ground_paint != NULL)
+				{
+					groundPaint = gcnew GroundPaint(_nativeObj.ground_paint[0]);
+				}
+				else {
+					groundPaint = nullptr;
+				}
 			}
 			SCOFile(sco_file_t* _nativePtr)
 			{
