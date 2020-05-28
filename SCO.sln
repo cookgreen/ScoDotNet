@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCO.Test", "Test\SCO.Test.csproj", "{FE5ABB36-98D8-466E-A8DD-C127D5344DA9}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SCO.Managed", "Wrapper\SCO.Managed.vcxproj", "{7D0F260A-A270-4FF9-89F4-860256F41CA3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SCO.Native", "Native\SCO.Native.vcxproj", "{F0E207D5-5662-45D6-9429-F3FE7A36DA25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCO.TestReader", "TestReader\SCO.TestReader.csproj", "{FE5ABB36-98D8-466E-A8DD-C127D5344DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCO.TestWriter", "TestWriter\SCO.TestWriter.csproj", "{81263802-F084-41C4-88A8-DC8547857DCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,8 +52,23 @@ Global
 		{F0E207D5-5662-45D6-9429-F3FE7A36DA25}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{F0E207D5-5662-45D6-9429-F3FE7A36DA25}.Release|Win32.ActiveCfg = Release|Win32
 		{F0E207D5-5662-45D6-9429-F3FE7A36DA25}.Release|Win32.Build.0 = Release|Win32
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Debug|Win32.Build.0 = Debug|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Release|Win32.ActiveCfg = Release|Any CPU
+		{81263802-F084-41C4-88A8-DC8547857DCF}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {561B9D3B-C543-498E-B2B7-180049A9CE42}
 	EndGlobalSection
 EndGlobal
