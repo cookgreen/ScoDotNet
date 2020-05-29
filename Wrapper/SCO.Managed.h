@@ -344,6 +344,7 @@ namespace SCO {
 					layer->HasCells = _nativeObj.layers[lcv].has_cells;
 					if (layer->HasCells)
 					{
+						layer->ContinuityCount = gcnew array<int>(sizeX * sizeY + 1);
 						layer->ContinuityCount[sizeX * sizeY] = _nativeObj.layers[lcv].continuity_count[sizeX * sizeY];
 						for (int i = 0; i < sizeX; i++)
 						{
@@ -382,16 +383,20 @@ namespace SCO {
 					for (int i = 0; i < g.num_layers; i++)
 					{
 						ground_paint_layer_t layer;
-						layer.continuity_count = new int[sizeX*sizeY + 1];
 						layer.cells = new float[sizeX*sizeY];
 						layer.ground_spec_id = (char*)Marshal::StringToHGlobalAnsi(layers[i]->GroundSpecID).ToPointer();
 						layer.ground_spec_no = layers[i]->GroundSpecNo;
-						for (int j = 0; j < sizeX; j++)
+						if (layers[i]->HasCells)
 						{
-							for (int k = 0; k < sizeY; k++)
+							layer.continuity_count = new int[sizeX * sizeY + 1];
+							layer.continuity_count[sizeX * sizeY] = g.layers[i].continuity_count[sizeX * sizeY];
+							for (int j = 0; j < sizeX; j++)
 							{
-								layer.cells[k * sizeY + j] = (float)layers[i]->Cells[k * sizeY + j];
-								layer.continuity_count[k * sizeY + j] = (int)layers[i]->ContinuityCount[k * sizeY + j];
+								for (int k = 0; k < sizeY; k++)
+								{
+									layer.cells[k * sizeY + j] = (float)layers[i]->Cells[k * sizeY + j];
+									layer.continuity_count[k * sizeY + j] = (int)layers[i]->ContinuityCount[k * sizeY + j];
+								}
 							}
 						}
 					}

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSession.cs" />
+    <Compile Include="FormState.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +55,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucAIMeshEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAIMeshEditor.Designer.cs">
+      <DependentUpon>ucAIMeshEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucGroudPaintLayerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGroudPaintLayerEditor.Designer.cs">
+      <DependentUpon>ucGroudPaintLayerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMissionObjectEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMissionObjectEditor.Designer.cs">
+      <DependentUpon>ucMissionObjectEditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +85,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucAIMeshEditor.resx">
+      <DependentUpon>ucAIMeshEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucGroudPaintLayerEditor.resx">
+      <DependentUpon>ucGroudPaintLayerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMissionObjectEditor.resx">
+      <DependentUpon>ucMissionObjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

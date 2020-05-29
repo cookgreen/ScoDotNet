@@ -31,12 +31,13 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.btnMissionObjects = new System.Windows.Forms.Button();
-			this.btnGroundPaint = new System.Windows.Forms.Button();
 			this.btnAIMesh = new System.Windows.Forms.Button();
+			this.btnGroundPaint = new System.Windows.Forms.Button();
+			this.btnMissionObjects = new System.Windows.Forms.Button();
 			this.panelMain = new System.Windows.Forms.Panel();
+			this.mnuOpen = new System.Windows.Forms.ToolStripMenuItem();
+			this.btnSave = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -55,7 +56,7 @@
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNew,
-            this.mnuSave});
+            this.mnuOpen});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
 			this.fileToolStripMenuItem.Text = "File";
@@ -67,16 +68,10 @@
 			this.mnuNew.Text = "New";
 			this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
 			// 
-			// mnuSave
-			// 
-			this.mnuSave.Enabled = false;
-			this.mnuSave.Name = "mnuSave";
-			this.mnuSave.Size = new System.Drawing.Size(180, 22);
-			this.mnuSave.Text = "Save";
-			// 
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.btnSave);
 			this.panel1.Controls.Add(this.btnAIMesh);
 			this.panel1.Controls.Add(this.btnGroundPaint);
 			this.panel1.Controls.Add(this.btnMissionObjects);
@@ -85,26 +80,6 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(200, 609);
 			this.panel1.TabIndex = 1;
-			// 
-			// btnMissionObjects
-			// 
-			this.btnMissionObjects.Enabled = false;
-			this.btnMissionObjects.Location = new System.Drawing.Point(33, 25);
-			this.btnMissionObjects.Name = "btnMissionObjects";
-			this.btnMissionObjects.Size = new System.Drawing.Size(121, 84);
-			this.btnMissionObjects.TabIndex = 0;
-			this.btnMissionObjects.Text = "Mission Objects";
-			this.btnMissionObjects.UseVisualStyleBackColor = true;
-			// 
-			// btnGroundPaint
-			// 
-			this.btnGroundPaint.Enabled = false;
-			this.btnGroundPaint.Location = new System.Drawing.Point(33, 154);
-			this.btnGroundPaint.Name = "btnGroundPaint";
-			this.btnGroundPaint.Size = new System.Drawing.Size(121, 84);
-			this.btnGroundPaint.TabIndex = 1;
-			this.btnGroundPaint.Text = "Groud Paint";
-			this.btnGroundPaint.UseVisualStyleBackColor = true;
 			// 
 			// btnAIMesh
 			// 
@@ -115,6 +90,29 @@
 			this.btnAIMesh.TabIndex = 2;
 			this.btnAIMesh.Text = "AIMesh";
 			this.btnAIMesh.UseVisualStyleBackColor = true;
+			this.btnAIMesh.Click += new System.EventHandler(this.btnAIMesh_Click);
+			// 
+			// btnGroundPaint
+			// 
+			this.btnGroundPaint.Enabled = false;
+			this.btnGroundPaint.Location = new System.Drawing.Point(33, 154);
+			this.btnGroundPaint.Name = "btnGroundPaint";
+			this.btnGroundPaint.Size = new System.Drawing.Size(121, 84);
+			this.btnGroundPaint.TabIndex = 1;
+			this.btnGroundPaint.Text = "Groud Paint";
+			this.btnGroundPaint.UseVisualStyleBackColor = true;
+			this.btnGroundPaint.Click += new System.EventHandler(this.btnGroundPaint_Click);
+			// 
+			// btnMissionObjects
+			// 
+			this.btnMissionObjects.Enabled = false;
+			this.btnMissionObjects.Location = new System.Drawing.Point(33, 25);
+			this.btnMissionObjects.Name = "btnMissionObjects";
+			this.btnMissionObjects.Size = new System.Drawing.Size(121, 84);
+			this.btnMissionObjects.TabIndex = 0;
+			this.btnMissionObjects.Text = "Mission Objects";
+			this.btnMissionObjects.UseVisualStyleBackColor = true;
+			this.btnMissionObjects.Click += new System.EventHandler(this.btnMissionObjects_Click);
 			// 
 			// panelMain
 			// 
@@ -123,6 +121,24 @@
 			this.panelMain.Name = "panelMain";
 			this.panelMain.Size = new System.Drawing.Size(791, 609);
 			this.panelMain.TabIndex = 2;
+			// 
+			// mnuOpen
+			// 
+			this.mnuOpen.Name = "mnuOpen";
+			this.mnuOpen.Size = new System.Drawing.Size(180, 22);
+			this.mnuOpen.Text = "Open";
+			this.mnuOpen.Click += new System.EventHandler(this.mnuOpen_Click);
+			// 
+			// btnSave
+			// 
+			this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.btnSave.Enabled = false;
+			this.btnSave.Location = new System.Drawing.Point(33, 512);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(121, 84);
+			this.btnSave.TabIndex = 3;
+			this.btnSave.Text = "Save";
+			this.btnSave.UseVisualStyleBackColor = true;
 			// 
 			// frmMain
 			// 
@@ -152,12 +168,13 @@
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem mnuNew;
-		private System.Windows.Forms.ToolStripMenuItem mnuSave;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button btnAIMesh;
 		private System.Windows.Forms.Button btnGroundPaint;
 		private System.Windows.Forms.Button btnMissionObjects;
 		private System.Windows.Forms.Panel panelMain;
+		private System.Windows.Forms.ToolStripMenuItem mnuOpen;
+		private System.Windows.Forms.Button btnSave;
 	}
 }
 
