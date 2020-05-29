@@ -12,7 +12,7 @@
 * Test - CSharp Test application  
 
 ## Compile
-You need to have Visual Studio 2013 to compile this project, load the solution with you Visual Studio, and compile.
+You need visual Studio 2019 to compile this project
 
 ## Credit
 SCO - Swyter  
