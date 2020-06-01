@@ -572,11 +572,11 @@ namespace SCO {
 				unknown = _nativeObj.unknown;
 				vertices = gcnew array<int>(4);
 				edges = gcnew array<int>(4);
-				for (int i = 0; i < 4; i++)
+				for (int i = 0; i < num_vertices; i++)
 				{
 					edges[i] = _nativeObj.edges[i];
 				}
-				for (int i = 0; i < 4; i++)
+				for (int i = 0; i < num_vertices; i++)
 				{
 					vertices[i] = _nativeObj.vertices[i];
 				}

@@ -65,6 +65,21 @@ namespace SCO.TestWriter
 						SetControlEnableMethod(btnMissionObjects, false);
 						SetControlEnableMethod(btnSave, false);
 						break;
+					case FormState.MissonObjects:
+						SetControlEnableMethod(btnAIMesh, true);
+						SetControlEnableMethod(btnGroundPaint, true);
+						SetControlEnableMethod(btnMissionObjects, false);
+						break;
+					case FormState.GroundPaintLayer:
+						SetControlEnableMethod(btnAIMesh, true);
+						SetControlEnableMethod(btnGroundPaint, false);
+						SetControlEnableMethod(btnMissionObjects, true);
+						break;
+					case FormState.AIMesh:
+						SetControlEnableMethod(btnAIMesh, false);
+						SetControlEnableMethod(btnGroundPaint, true);
+						SetControlEnableMethod(btnMissionObjects, true);
+						break;
 					default:
 						SetControlEnableMethod(btnAIMesh, false);
 						SetControlEnableMethod(btnGroundPaint, false);
@@ -99,12 +114,15 @@ namespace SCO.TestWriter
 			{
 				session = new ScoAppSession(this);
 				session.Open(dialog.FileName);
+				btnMissionObjects_Click(sender, e);
 			}
 		}
 
 		private void btnMissionObjects_Click(object sender, EventArgs e)
 		{
-			ucMissionObjectEditor ucMissionObjectEditor = new ucMissionObjectEditor(session.CurrentFile);
+			currentState = FormState.MissonObjects;
+			var sco = session.CurrentFile;
+			ucMissionObjectEditor ucMissionObjectEditor = new ucMissionObjectEditor(ref sco);
 			panelMain.Controls.Clear();
 			panelMain.Controls.Add(ucMissionObjectEditor);
 			ucMissionObjectEditor.Dock = DockStyle.Fill;
@@ -112,6 +130,7 @@ namespace SCO.TestWriter
 
 		private void btnGroundPaint_Click(object sender, EventArgs e)
 		{
+			currentState = FormState.GroundPaintLayer;
 			ucGroudPaintLayerEditor ucGroudPaintLayerEditor = new ucGroudPaintLayerEditor(session.CurrentFile);
 			panelMain.Controls.Clear();
 			panelMain.Controls.Add(ucGroudPaintLayerEditor);
@@ -120,6 +139,7 @@ namespace SCO.TestWriter
 
 		private void btnAIMesh_Click(object sender, EventArgs e)
 		{
+			currentState = FormState.AIMesh;
 			ucAIMeshEditor ucAIMeshEditor = new ucAIMeshEditor(session.CurrentFile);
 			panelMain.Controls.Clear();
 			panelMain.Controls.Add(ucAIMeshEditor);

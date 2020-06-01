@@ -8,8 +8,11 @@ namespace SCO.TestWriter
 {
 	public enum FormState
 	{
+		Closed,
 		New,
 		Open,
-		Closed
+		MissonObjects,
+		GroundPaintLayer,
+		AIMesh,
 	}
 }
